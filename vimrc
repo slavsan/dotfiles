@@ -17,8 +17,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tomasr/molokai'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'w0rp/ale'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 if has('nvim')
   Plugin 'fatih/vim-go'
@@ -63,7 +65,12 @@ set mouse=a
 " hi CursorLine = nice colors
 set clipboard=unnamed
 
-nnoremap c :bp\|bd #<CR>
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
+nnoremap q :bp\|bd #<CR>
 
 
 " =================== airline ====================
@@ -71,6 +78,16 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme='badwolf'
+
+
+" ================== nerdtree ====================
+let NERDTreeShowHidden = 1
+
+
+" =================== ctrlp ======================
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|dist'
 
 
 " ================== syntactic ===================
