@@ -8,7 +8,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'pangloss/vim-javascript'
@@ -93,8 +92,10 @@ let NERDTreeShowHidden = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|dist'
-let g:ctrlp_max_files = 0
+let g:ctrlp_max_files = 30000
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_mruf_relative = 1
+let g:ctrlp_cmd = 'CtrlPMRU'
 
 
 " ================== syntactic ===================
