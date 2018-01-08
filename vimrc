@@ -8,12 +8,18 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'elmcast/elm-vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'posva/vim-vue'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+" Plugin 'slashmili/alchemist.vim'
 Plugin 'tomasr/molokai'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-fugitive'
@@ -65,7 +71,7 @@ set mouse=a
 " hi CursorLine = nice colors
 set clipboard=unnamed
 
-set foldmethod=indent   
+set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
@@ -75,6 +81,10 @@ set backspace=indent,eol,start
 nnoremap q :bp\|bd #<CR>
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
+
+" Open new split panes to right and bottom, which feels more natural
+" set splitbelow
+" set splitright
 
 
 " =================== airline ====================
@@ -174,3 +184,5 @@ if has('nvim')
   augroup END
 endif
 
+" =============== example configs ================
+" https://github.com/thoughtbot/dotfiles/blob/master/vimrc
