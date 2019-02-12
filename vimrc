@@ -7,26 +7,39 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'aklt/plantuml-syntax'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'cespare/vim-toml'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'elmcast/elm-vim'
+Plugin 'eraserhd/parinfer-rust'
+Plugin 'guns/vim-clojure-static'
+Plugin 'jparise/vim-graphql'
 Plugin 'kien/ctrlp.vim'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'mxw/vim-jsx'
+Plugin 'neovimhaskell/haskell-vim'
+Plugin 'nlknguyen/papercolor-theme'
 Plugin 'pangloss/vim-javascript'
 Plugin 'posva/vim-vue'
+Plugin 'rust-lang/rust.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+Plugin 'shaunlebron/parinfer'
+" Plugin 'scrooloose/syntastic'
 " Plugin 'slashmili/alchemist.vim'
 Plugin 'tomasr/molokai'
 Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'w0rp/ale'
+" Plugin 'valloric/youcompleteme'
+Plugin 'w0rp/ale'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 if has('nvim')
   Plugin 'fatih/vim-go'
@@ -47,6 +60,9 @@ let g:rehash256 = 1
 set background=dark
 let g:molokai_original = 1
 colorscheme molokai
+
+" set background=light
+" colorscheme PaperColor
 
 
 " ================= basic setup ==================
@@ -75,10 +91,14 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
+set nowrap
+" set colorcolumn=81
+autocmd BufReadPost,BufNewFile *.js,*.go match ErrorMsg '\%>80v.\+'
+autocmd BufNew,BufRead *.md match none
 
 set backspace=indent,eol,start
 
-nnoremap q :bp\|bd #<CR>
+" nnoremap q :bp\|bd #<CR>
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
 
@@ -92,6 +112,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme='badwolf'
+set showtabline=0
 
 
 " ================== nerdtree ====================
@@ -102,21 +123,38 @@ let NERDTreeShowHidden = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|dist'
-let g:ctrlp_max_files = 30000
+" let g:ctrlp_max_files = 0
+let g:ctrlp_max_files = 50000
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_mruf_relative = 1
-let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_max_height = 30
+" let g:ctrlp_working_path_mode=''
+" let g:ctrlp_cmd = 'CtrlPMRU'
+
+
+" ================ rust.vim ======================
+let g:rustfmt_autosave = 1
+
+
+" ============== haskell-vim =====================
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 
 " ================== syntactic ===================
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 
 " ==================== vim-go ====================
