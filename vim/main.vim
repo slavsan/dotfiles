@@ -6,7 +6,7 @@ source ~/.dotfiles/vim/nerdtree.vim
 source ~/.dotfiles/vim/ctrlp.vim
 source ~/.dotfiles/vim/rust.vim
 source ~/.dotfiles/vim/haskell.vim
-source ~/.dotfiles/vim/syntactic.vim
+source ~/.dotfiles/vim/syntastic.vim
 source ~/.dotfiles/vim/go.vim
 
 " =============== example configs ================

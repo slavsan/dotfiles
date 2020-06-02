@@ -1,6 +1,12 @@
+" Turn syntax highlighting
 syntax on
+
+" Set color palette
 set t_Co=256
+
+" Show line numbers
 set nu
+
 set showcmd
 set tabstop=2                   " see :h 'tanbstop'
 set softtabstop=2               " see :h 'softtabstop'
@@ -25,10 +31,20 @@ set nofoldenable
 set foldlevel=2
 set nowrap
 " set colorcolumn=81
+
+" Highlight everything after the 80th column
 autocmd BufReadPost,BufNewFile *.js,*.go match ErrorMsg '\%>80v.\+'
 autocmd BufNew,BufRead *.md match none
 
 set backspace=indent,eol,start
+
+" Set the vertical line characters
+" variants:
+"   - "set fillchars+=vert:\|"
+"   - "set fillchars+=vert:\ " <- mind the space here
+set fillchars+=vert:\|"
+
+hi VertSplit ctermbg=NONE guibg=NONE
 
 " nnoremap q :bp\|bd #<CR>
 nnoremap <Leader>b :bp<CR>

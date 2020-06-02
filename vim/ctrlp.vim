@@ -1,6 +1,6 @@
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|dist'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|coverage\|dist\|target'
 " let g:ctrlp_max_files = 0
 let g:ctrlp_max_files = 50000
 let g:ctrlp_show_hidden = 1
