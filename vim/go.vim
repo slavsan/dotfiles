@@ -1,4 +1,4 @@
-if has('nvim')
+" if has('nvim')
   let g:go_fmt_fail_silently = 0
   let g:go_fmt_command = "goimports"
   let g:go_list_type = "quickfix"
@@ -14,12 +14,12 @@ if has('nvim')
   " let g:go_metalinter_autosave = 1
   " let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
-  let g:go_highlight_space_tab_error = 0
-  let g:go_highlight_array_whitespace_error = 0
-  let g:go_highlight_trailing_whitespace_error = 0
-  let g:go_highlight_extra_types = 0
+  let g:go_highlight_space_tab_error = 1
+  let g:go_highlight_array_whitespace_error = 1
+  let g:go_highlight_trailing_whitespace_error = 1
+  let g:go_highlight_extra_types = 1
   let g:go_highlight_build_constraints = 1
-  let g:go_highlight_types = 0
+  let g:go_highlight_types = 1
 
   let g:go_modifytags_transform = 'camelcase'
 
@@ -60,4 +60,4 @@ if has('nvim')
     autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
     autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
   augroup END
-endif
+" endif
