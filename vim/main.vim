@@ -28,145 +28,12 @@ let g:ctrlp_dont_split = 'nerdtree'
 
 
 " https://stackoverflow.com/questions/11666170/persistent-set-syntax-for-a-given-filetype/28117335
-augroup tsx_ft
-  au!
-  autocmd BufNewFile,BufRead *.tsx   set syntax=typescript
-augroup END
+" augroup tsx_ft
+"   au!
+"   autocmd BufNewFile,BufRead *.tsx   set syntax=typescript
+" augroup END
 
-
-" " Start NERDTree
-" autocmd VimEnter * NERDTree
-" " Jump to the main window.
-" autocmd VimEnter * wincmd p
-
-
-
-
-
-
-
-" let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
-"
-" func! MyCtrlPMappings()
-"     nnoremap <buffer> <silent> <c-C> :call <sid>DeleteBuffer()<cr>
-" endfunc
-"
-" func! s:DeleteBuffer()
-"     let line = getline('.')
-"     let bufid = line =~ '\[\d\+\*No Name\]$' ? str2nr(matchstr(line, '\d\+'))
-"         \ : fnamemodify(line[2:], ':p')
-"     exec "bd" bufid
-"     exec "norm \<F5>"
-" endfunc
-
-
-
-
-
-
-
-" function! ctrlp_bdelete#init()
-"   if !exists('g:ctrlp_buffer_func')
-"     let g:ctrlp_buffer_func = {}
-"   endif
-"
-"   " don't clobbber any existing user setting
-"   if has_key(g:ctrlp_buffer_func, 'enter')
-"     if g:ctrlp_buffer_func['enter'] != 'ctrlp_bdelete#mappings'
-"       let s:ctrlp_bdelete_user_func = g:ctrlp_buffer_func['enter']
-"     endif
-"   endif
-"
-"   let g:ctrlp_buffer_func['enter'] = 'ctrlp_bdelete#mappings'
-" endfunction
-"
-" " Buffer function used in the ctrlp settings (applies mappings).
-" function! ctrlp_bdelete#mappings(...)
-"   " call the original user setting, if set
-"   if exists('s:ctrlp_bdelete_user_func')
-"     call call(s:ctrlp_bdelete_user_func, a:000)
-"   endif
-"
-"   nnoremap <buffer> <silent> <c-@> :call <sid>DeleteMarkedBuffers()<cr>
-" endfunction
-"
-" function! s:DeleteMarkedBuffers()
-"   " get the line number to preserve position
-"   let currln = line('.')
-"   let lastln = line('$')
-"
-"   " list all marked buffers
-"   let marked = ctrlp#getmarkedlist()
-"
-"   " the file under the cursor is implicitly marked
-"   if empty(marked)
-"     call add(marked, fnamemodify(ctrlp#getcline(), ':p'))
-"   endif
-"
-"   " call bdelete on all marked buffers
-"   for fname in marked
-"     let bufid = fname =~ '\[\d\+\*No Name\]$' ? str2nr(matchstr(fname, '\d\+'))
-"           \ : fnamemodify(fname[2:], ':p')
-"     exec "silent! bdelete" bufid
-"   endfor
-"
-"   " refresh ctrlp
-"   exec "normal \<f5>"
-"
-"   " unmark buffers that have been deleted
-"   silent! call ctrlp#clearmarkedlist()
-"
-"   " preserve line selection
-"   if line('.') == currln && line('$') < lastln
-"     exec "normal \<up>"
-"   endif
-" endfunction
-
-
-
-
-
-" let g:ctrlp_buffer_func = { 'enter': 'CtrlPBDelete' }
-"
-" function! CtrlPBDelete()
-"   nnoremap <buffer> <silent> <c-@> :call <sid>DeleteMarkedBuffers()<cr>
-" endfunction
-"
-" function! s:DeleteMarkedBuffers()
-"   " list all marked buffers
-"   let marked = ctrlp#getmarkedlist()
-"
-"   " the file under the cursor is implicitly marked
-"   if empty(marked)
-"     call add(marked, fnamemodify(ctrlp#getcline(), ':p'))
-"   endif
-"
-"   " call bdelete on all marked buffers
-"   for fname in marked
-"     let bufid = fname =~ '\[\d\+\*No Name\]$' ? str2nr(matchstr(fname, '\d\+'))
-"           \ : fnamemodify(fname[2:], ':p')
-"     exec "silent! bdelete" bufid
-"   endfor
-"
-"   " refresh ctrlp
-"   exec "normal \<F5>"
-" endfunction
-
-
-
-
-
-" https://stackoverflow.com/questions/21316727/automatic-closing-brackets-for-vim
-" inoremap " ""<left>
-" inoremap ' ''<left>
-" inoremap ( ()<left>
-" inoremap [ []<left>
-" inoremap { {}<left>
-" inoremap {<CR> {<CR>}<ESC>O
-" inoremap {;<CR> {<CR>};<ESC>O
-
-
-
+autocmd BufNewFile,BufRead *.mjs set filetype=javascript
 
 " let mapleader=","
 let mapleader=" "
@@ -213,6 +80,29 @@ au FileType go nmap <leader>co <Plug>(go-coverage)
 au FileType go nmap <leader>cc <Plug>(go-coverage-clear)
 au FileType go nmap <leader>pt <Plug>(go-pointsto)
 
-" au FileType go nmap <leader>dx <Plug>GoDoc
-" GoDefType
-" GoRename
+let g:svelte_indent_script = 2
+let g:svelte_indent_style = 2
+
+nmap <C-w>t :TagbarToggle<CR>
+
+let g:lsp_diagnostics_echo_cursor = 1
+
+nmap gd :LspDefinition<CR>
+nmap gs :LspDocumentSymbolSearch<CR>
+nmap gr :LspReferences<CR>
+nmap gi :LspImplementation<CR>
+nmap dp :LspPeekDefinition<CR>
+nmap K  :LspHover<CR>
+nmap NF :NERDTreeFind<CR>
+
+set nonu
+
+set signcolumn=yes
+autocmd FileType tagbar,nerdtree setlocal signcolumn=no
+
+let g:markdown_folding = 1
+au FileType markdown setlocal foldlevel=99
+
+
+
+call ctrlp_bdelete#init()

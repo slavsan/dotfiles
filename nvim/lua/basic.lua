@@ -1,3 +1,4 @@
+vim.cmd([[
 " Turn syntax highlighting
 syntax on
 
@@ -5,7 +6,7 @@ syntax on
 set t_Co=256
 
 " Show line numbers
-set nu
+set number
 
 set showcmd
 set tabstop=2                   " see :h 'tanbstop'
@@ -55,3 +56,6 @@ set laststatus=3
 " Open new split panes to right and bottom, which feels more natural
 " set splitbelow
 " set splitright
+
+:set ignorecase
+]])
