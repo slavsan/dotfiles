@@ -18,6 +18,10 @@ nmap('<C-w><C-e>', ':e!<CR>')              -- reload file
 
 nmap('<C-c><C-h>', ':let @/=""<CR>')       -- clear highlight
 
+nmap('<C-s>f',     ':FzfFiles<CR>')        -- Fzf show files
+nmap('<C-s>b',     ':FzfBuffers<CR>')      -- Fzf show buffers
+nmap('<C-s>s',     ':FzfSnippets<CR>')     -- Fzf show snippets
+
 imap('<C-j>',      '<Down>')               -- go down (during insert mode)
 imap('<C-k>',      '<Up>')                 -- clear highlight
 imap('<C-h>',      '<Left>')               -- clear highlight
