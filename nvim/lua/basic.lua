@@ -34,8 +34,8 @@ set nowrap
 " set colorcolumn=81
 
 " Highlight everything after the 80th column
-autocmd BufReadPost,BufNewFile *.js,*.go match ErrorMsg '\%>80v.\+'
-autocmd BufNew,BufRead *.md match none
+" autocmd BufReadPost,BufNewFile *.js,*.go match ErrorMsg '\%>80v.\+'
+" autocmd BufNew,BufRead *.md match none
 
 set backspace=indent,eol,start
 

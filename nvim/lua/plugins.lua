@@ -12,9 +12,8 @@ return require('packer').startup(function()
   -- NERDTree
   use {'scrooloose/nerdtree', commit = 'eed488b1cd1867bd25f19f90e10440c5cc7d6424'}
 
-  -- Airtable
-  use {'vim-airline/vim-airline', commit = 'be5bda1f1dbfa4e36b2adabaf3f423adfa66c336'}
-  use {'vim-airline/vim-airline-themes', commit = '97cf3e6e638f936187d5f6e9b5eb1bdf0a4df256'}
+  -- Go
+  use {'fatih/vim-go', commit = '22b2273cfe562ac1c1af976ce77f18a3b1776f3c'}
 
   -- Git
   use {'airblade/vim-gitgutter', commit = '988a6dbad9a9777cd94aab18ba7821a41068685b'}
@@ -45,4 +44,17 @@ return require('packer').startup(function()
 
   -- Theme
   use {'tomasr/molokai', as = 'molokai', commit = 'c67bdfcdb31415aa0ade7f8c003261700a885476'}
+  use {'NLKNguyen/papercolor-theme', as = 'PaperColor', commit = '9051480ad9129ff4ab4fffb38b44779b9081626f'}
+
+  -- PlantUML
+  use {'aklt/plantuml-syntax', commit = '845abb56dcd3f12afa6eb47684ef5ba3055802b8'}
+
+  -- Solarized
+  use {'altercation/vim-colors-solarized', commit = '528a59f26d12278698bb946f8fb82a63711eec21'}
+
+  -- use {"olimorris/onedarkpro.nvim"}
+
+  -- Lightline
+  use {'itchyny/lightline.vim', commit = 'b1e91b41f5028d65fa3d31a425ff21591d5d957f'}
+
 end)

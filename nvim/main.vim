@@ -7,7 +7,7 @@ package.path = (
 )
 
 require 'plugins'
-require 'plugins.airtable'
+require 'plugins.lightline'
 require 'plugins.nerdtree'
 require 'plugins.fzf'
 require 'plugins.ultisnips'
